@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 55px;
+  height: 20px;
+}
+
+.switch input { 
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 18px;
+  width: 18px;
+  left: 1px;
+  bottom: 1px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:disabled + .slider {
+  background-color: #ccc!important;
+}
+
+input:checked + .slider {
+  background-color: #2196F3;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(34px);
+  -ms-transform: translateX(34px);
+  transform: translateX(34px);
+}
+
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+</style>
+</head>
+<body>
+  <label>Enable conversion</label>
+  <label class="switch">
+    <input type="checkbox" id="enabled" checked>
+    <span class="slider round"></span>
+  </label>
+  <br/>
+  <label>Amount</label>
+  <input type="number" id="currentValue" style="width: 55px; margin-right: 50px;" step="100" min="100" max="10000" value="500" required></span>
+  <input type="range" id="amount" min="100" max="10000" step="100" value="500">
+  <br/>
+  <label>Randomize the amount</label>
+  <label class="switch">
+    <input type="checkbox" id="randomize">
+    <span class="slider round"></span>
+  </label>
+  <br/>
+  <br/>
+  <button id="submit">Submit</button>
+  <label id="message"></label>
+  <script src="./popup.js"></script>
+</body>
+</html>

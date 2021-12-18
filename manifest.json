@@ -1,0 +1,19 @@
+{
+  "name": "superchat-maker",
+  "description": "your youtube chat converts to superchat.",
+  "permissions": [
+    "storage"
+  ],
+  "version": "0.0.1",
+  "manifest_version": 3,
+  "content_scripts": [
+    {
+      "matches": ["https://www.youtube.com/watch?*"],
+      "js": ["jquery-3.6.0.min.js","youtube/script.js"]
+    }
+  ],
+  "action": {
+    "default_title": "SuperChatMaker",
+    "default_popup": "popup/popup.html"
+  }
+}
