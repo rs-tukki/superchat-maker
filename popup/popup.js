@@ -7,10 +7,10 @@ window.onload = ()  => {
     const message = document.getElementById('message');
 
     chrome.storage.sync.get(['enabled','amount','randomize'], items => {
-      enabled.checked = items.enabled || true;
+      enabled.checked = items.enabled == null ? true : items.enabled;
       amount.value = items.amount || 500;
       currentValue.value = items.amount || 500;
-      randomize.checked = items.randomize || false;
+      randomize.checked = items.randomize == null ? false : items.enabled;
       if(enabled.checked) {
         currentValue.disabled = randomize.checked;
         amount.disabled = randomize.checked;

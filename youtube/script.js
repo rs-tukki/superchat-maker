@@ -81,9 +81,9 @@ const colorTemplate = {
 const convertToSuperchat = function(yourName, chatArea, postedChat) {
   if(postedChat.length){
     chrome.storage.sync.get(['enabled','amount','randomize'], items => {
-      const enabled = items.enabled || true;
+      const enabled = items.enabled == null ? true : items.enabled;
       const amount = items.amount || 500;
-      const randomize = items.randomize || false;
+      const randomize = items.randomize == null ? false : items.enabled;
       if (enabled) {
         const chatAmount = getAmount(amount, randomize);
         let superchat = suprchatTemplate.replace('@Id@', $(postedChat).attr('id'))
